@@ -1,0 +1,29 @@
+using System;
+
+namespace Teste_If { 
+class Program {
+
+    static void Main(string[] args) {
+
+            int a, b, c;
+
+            a = int.Parse(Console.ReadLine());
+            b = int.Parse(Console.ReadLine());
+            c = int.Parse(Console.ReadLine());
+
+            if (a > b && a > c) {
+                Console.WriteLine(a + " é o maior");
+            }
+
+            else
+            {
+                Console.WriteLine("'A' não é o maior");
+            }
+
+            Console.ReadLine();
+
+    }
+    
+    }
+
+}
