@@ -1,0 +1,28 @@
+using System;
+
+namespace VerificacaoSenha
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int senhaCorreta = 2002;
+            int senha;
+
+            do
+            {
+                Console.WriteLine("Digite a senha:");
+                senha = int.Parse(Console.ReadLine());
+
+                if (senha != senhaCorreta)
+                {
+                    Console.WriteLine("Senha Inválida");
+                }
+            } while (senha != senhaCorreta);
+
+            Console.WriteLine("Acesso Permitido");
+
+            Console.ReadLine();
+        }
+    }
+}
