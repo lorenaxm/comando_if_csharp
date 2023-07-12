@@ -1,0 +1,50 @@
+using System;
+using System.Globalization;
+
+namespace Program { 
+class Program
+{
+    static void Main(string[] args)
+    {
+        
+            double valor;
+            int quantidade, codigo;
+
+            string[] vet = Console.ReadLine().Split(' ');
+
+            codigo = int.Parse(vet[0]);
+            quantidade = int.Parse(vet[1]);
+
+            if (codigo == 1) {
+
+                valor = (double)4.00;
+                Console.WriteLine("Total: R$ " + (quantidade*valor).ToString("F2", CultureInfo.InvariantCulture));
+            }
+            else if (codigo == 2)
+            {
+                valor = (double)4.50;
+                Console.WriteLine("Total: R$ " + (quantidade * valor).ToString("F2", CultureInfo.InvariantCulture));
+            }
+            else if (codigo == 3)
+            {
+                valor = (double)5.00;
+                Console.WriteLine("Total: R$ " + (quantidade * valor).ToString("F2", CultureInfo.InvariantCulture));
+            }
+
+            else if (codigo == 4)
+            {
+                valor = (double)2.00;
+                Console.WriteLine("Total: R$ " + (quantidade * valor).ToString("F2", CultureInfo.InvariantCulture));
+            }
+            else if (codigo == 5)
+            {
+                valor = 1.50;
+                Console.WriteLine("Total: R$ " + (quantidade * valor).ToString("F2", CultureInfo.InvariantCulture));
+            }
+
+            else { Console.WriteLine("Código não encontrado"); }
+
+
+        }
+    }
+}
