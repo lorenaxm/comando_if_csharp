@@ -1,0 +1,51 @@
+using Course;
+using System;
+using System.Globalization;
+
+namespace Program
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Pessoa A, B;
+
+            A = new Pessoa();
+            B = new Pessoa();
+
+            Console.WriteLine("Entre com os dados da Pessoa A: ");
+            A.Nome = Console.ReadLine();
+            A.Idade = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Entre com os dados da Pessoa B: ");
+            B.Nome = Console.ReadLine();
+            B.Idade = int.Parse(Console.ReadLine());
+
+            if (A.Idade > B.Idade)
+            {
+                Console.WriteLine("Pessoal mais velha: " + A.Nome);
+            }
+
+            else
+            {
+                Console.WriteLine("Pessoal mais velha: " + B.Nome);
+            }
+
+
+            Console.ReadLine();
+        }
+    }
+}
+
+-- arquivo de class
+
+
+namespace Course
+{
+    class Pessoa
+    {
+        public string Nome;
+        public int Idade;
+
+    }
+}
