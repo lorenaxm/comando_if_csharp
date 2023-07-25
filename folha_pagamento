@@ -1,0 +1,276 @@
+using System;
+using System.Globalization;
+
+namespace Course
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double inss, faixa1, faixa2, faixa3, faixa4, liquido, irrf, dependentesValue;
+
+            faixa1 = 99.00;
+            faixa2 = 112.61;
+            faixa3 = 154.27;
+            faixa4 = 511.07;
+
+            Console.WriteLine("Qual é o valor do salário?");
+            double salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.WriteLine("Quantos dependentes você possui?");
+            int dependentes = int.Parse(Console.ReadLine());
+
+            dependentesValue = dependentes * 189.59;
+
+            if (salario > 0.0 && salario < 1320.01)
+            {
+                inss = salario * 0.075;
+            }
+            else if (salario > 1320 && salario <= 2571.29)
+            {
+                inss = 99.00 + ((salario - 1320) * 0.09);
+            }
+            else if (salario > 2571.29 && salario <= 3856.94)
+            {
+                inss = 211.61 + ((salario - 2571.29) * 0.12);
+            }
+            else if (salario > 3856.94 && salario <= 7507.49)
+            {
+                inss = 365.88 + ((salario - 3856.94) * 0.14);
+            }
+            else if (salario > 7507.49)
+            {
+                inss = 877.98;
+            }
+            else
+            {
+                inss = 0.0;
+            }
+
+            double totalDeduction = dependentesValue + inss;
+
+            if (salario > 2112.00 && salario <= 2826.65 && totalDeduction < 528.00)
+            {
+                double resultadoDeducao = (salario - 528.00);
+                if (resultadoDeducao > 2112.00 && resultadoDeducao <= 2826.65)
+                {
+                    irrf = (salario - 528.00) * 0.075 - 158.40;
+                    if (irrf < 10.00)
+                    {
+                        irrf = 0.0;
+                    }
+                }
+                else if (resultadoDeducao > 2826.65 && resultadoDeducao <= 3751.05)
+                {
+                    irrf = (salario - 528.00) * 0.15 - 370.40;
+                }
+                else if (resultadoDeducao > 3751.05 && resultadoDeducao <= 4664.68)
+                {
+                    irrf = (salario - 528.00) * 0.225 - 651.73;
+                }
+                else if (resultadoDeducao > 4664.68)
+                {
+                    irrf = (salario - 528.00) * 0.275 - 884.96;
+                }
+                else
+                {
+                    irrf = 0.0;
+                }
+
+            }
+            else if (salario > 2112.00 && salario <= 2826.65 && totalDeduction > 528.00)
+            {
+                double resultadoDeducao = (salario - totalDeduction);
+                if (resultadoDeducao > 2112.00 && resultadoDeducao <= 2826.65)
+                {
+                    irrf = (salario - totalDeduction) * 0.075 - 158.40;
+                    if (irrf < 10.00)
+                    {
+                        irrf = 0.0;
+                    }
+                }
+                else if (resultadoDeducao > 2826.65 && resultadoDeducao <= 3751.05)
+                {
+                    irrf = (salario - totalDeduction) * 0.15 - 370.40;
+                }
+                else if (resultadoDeducao > 3751.05 && resultadoDeducao <= 4664.68)
+                {
+                    irrf = (salario - totalDeduction) * 0.225 - 651.73;
+                }
+                else if (resultadoDeducao > 4664.68)
+                {
+                    irrf = (salario - totalDeduction) * 0.275 - 884.96;
+                }
+                else
+                {
+                    irrf = 0.0;
+                }
+            }
+
+            else if (salario > 2826.65 && salario <= 3751.05 && totalDeduction < 528.00)
+            {
+                double resultadoDeducao = (salario - 528.00);
+                if (resultadoDeducao > 2112.00 && resultadoDeducao <= 2826.65)
+                {
+                    irrf = (salario - 528.00) * 0.075 - 158.40;
+                }
+                else if (resultadoDeducao > 2826.65 && resultadoDeducao <= 3751.05)
+                {
+                    irrf = (salario - 528.00) * 0.15 - 370.40;
+                }
+                else if (resultadoDeducao > 3751.05 && resultadoDeducao <= 4664.68)
+                {
+                    irrf = (salario - 528.00) * 0.225 - 651.73;
+                }
+                else if (resultadoDeducao > 4664.68)
+                {
+                    irrf = (salario - 528.00) * 0.275 - 884.96;
+                }
+                else
+                {
+                    irrf = 0.0;
+                }
+            }
+
+            else if (salario > 2826.65 && salario <= 3751.05 && totalDeduction > 528.00)
+            {
+                double resultadoDeducao = (salario - totalDeduction);
+                if (resultadoDeducao > 2112.00 && resultadoDeducao <= 2826.65)
+                {
+                    irrf = (salario - totalDeduction) * 0.075 - 158.40;
+                }
+                else if (resultadoDeducao > 2826.65 && resultadoDeducao <= 3751.05)
+                {
+                    irrf = (salario - totalDeduction) * 0.15 - 370.40;
+                }
+                else if (resultadoDeducao > 3751.05 && resultadoDeducao <= 4664.68)
+                {
+                    irrf = (salario - totalDeduction) * 0.225 - 651.73;
+                }
+                else if (resultadoDeducao > 4664.68)
+                {
+                    irrf = (salario - totalDeduction) * 0.275 - 884.96;
+                }
+                else
+                {
+                    irrf = 0.0;
+                }
+            }
+
+            else if (salario > 3751.05 && salario <= 4664.68 && totalDeduction < 528.00)
+            {
+                double resultadoDeducao = (salario - 528.00);
+                if (resultadoDeducao > 2112.00 && resultadoDeducao <= 2826.65)
+                {
+                    irrf = (salario - 528.00) * 0.075 - 158.40;
+                }
+                else if (resultadoDeducao > 2826.65 && resultadoDeducao <= 3751.05)
+                {
+                    irrf = (salario - 528.00) * 0.15 - 370.40;
+                }
+                else if (resultadoDeducao > 3751.05 && resultadoDeducao <= 4664.68)
+                {
+                    irrf = (salario - 528.00) * 0.225 - 651.73;
+                }
+                else if (resultadoDeducao > 4664.68)
+                {
+                    irrf = (salario - 528.00) * 0.275 - 884.96;
+                }
+                else
+                {
+                    irrf = 0.0;
+                }
+            }
+
+            else if (salario > 3751.05 && salario <= 4664.68 && totalDeduction > 528.00)
+            {
+                double resultadoDeducao = (salario - totalDeduction);
+                if (resultadoDeducao > 2112.00 && resultadoDeducao <= 2826.65)
+                {
+                    irrf = (salario - totalDeduction) * 0.075 - 158.40;
+                }
+                else if (resultadoDeducao > 2826.65 && resultadoDeducao <= 3751.05)
+                {
+                    irrf = (salario - totalDeduction) * 0.15 - 370.40;
+                }
+                else if (resultadoDeducao > 3751.05 && resultadoDeducao <= 4664.68)
+                {
+                    irrf = (salario - totalDeduction) * 0.225 - 651.73;
+                }
+                else if (resultadoDeducao > 4664.68)
+                {
+                    irrf = (salario - totalDeduction) * 0.275 - 884.96;
+                }
+                else
+                {
+                    irrf = 0.0;
+                }
+            }
+
+            else if (salario > 4664.68 && totalDeduction < 528.00)
+            {
+                double resultadoDeducao = (salario - 528.00);
+                if (resultadoDeducao > 2112.00 && resultadoDeducao <= 2826.65)
+                {
+                    irrf = (salario - 528.00) * 0.075 - 158.40;
+                }
+                else if (resultadoDeducao > 2826.65 && resultadoDeducao <= 3751.05)
+                {
+                    irrf = (salario - 528.00) * 0.15 - 370.40;
+                }
+                else if (resultadoDeducao > 3751.05 && resultadoDeducao <= 4664.68)
+                {
+                    irrf = (salario - 528.00) * 0.225 - 651.73;
+                }
+                else if (resultadoDeducao > 4664.68)
+                {
+                    irrf = (salario - 528.00) * 0.275 - 884.96;
+                }
+                else
+                {
+                    irrf = 0.0;
+                }
+            }
+
+            else if (salario > 4664.68 && totalDeduction > 528.00)
+            {
+                double resultadoDeducao = (salario - totalDeduction);
+                if (resultadoDeducao > 2112.00 && resultadoDeducao <= 2826.65)
+                {
+                    irrf = (salario - totalDeduction) * 0.075 - 158.40;
+                }
+                else if (resultadoDeducao > 2826.65 && resultadoDeducao <= 3751.05)
+                {
+                    irrf = (salario - totalDeduction) * 0.15 - 370.40;
+                }
+                else if (resultadoDeducao > 3751.05 && resultadoDeducao <= 4664.68)
+                {
+                    irrf = (salario - totalDeduction) * 0.225 - 651.73;
+                }
+                else if (resultadoDeducao > 4664.68)
+                {
+                    irrf = (salario - totalDeduction) * 0.275 - 884.96;
+                }
+                else
+                {
+                    irrf = 0.0;
+                }
+            }
+            else
+            {
+                irrf = 0.0;
+            }
+
+            liquido = salario - inss - irrf;
+
+            Console.WriteLine("INSS = " + inss.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("IRRF = " + irrf.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Líquido = " + liquido.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Demonstrativo de Cálculo: ");
+            Console.WriteLine("INSS Faixa 1: 1.320,00 x 7,5%........." + faixa1.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("INSS Faixa 2: 2.571,29 x 9,0%........." + faixa2.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("INSS Faixa 3: 3.856,94 x 12,0%........." + faixa3.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("INSS Faixa 4: até 7.507,49 x 14,0%........." + faixa4.ToString("F2", CultureInfo.InvariantCulture));
+        }
+    }
+}
